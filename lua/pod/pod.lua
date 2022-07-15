@@ -3,13 +3,14 @@ local hsl = lush.hsl
 
 -- Color definitions
 local c = {
-    -- bg = "#2b2b2b",
-    bg = "#0f0f0f",
+    bg = "#2b2b2b",
+    -- bg = "#0f0f0f",
     fg = "#e1e1e1",
     lineNrbg = "#4F4C4C",
     lineNrfg = "#808080",
     cmnt = "#686868",
     blue = "#7D83F4",
+    purple = "#A1A1F8",
     yellow = "#CBCA67",
     brown = "#B8A47A",
     cyan = "#73C1DB",
@@ -126,7 +127,7 @@ local theme = lush(function()
     -- Macro          { }, --   Same as Define
     -- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
 
-    Type           { fg = c.blue }, -- (*) int, long, char, etc.
+    Type           { fg = c.purple }, -- (*) int, long, char, etc.
     -- StorageClass   { }, --   static, register, volatile, etc.
     -- Structure      { }, --   struct, union, enum, etc.
     -- Typedef        { }, --   A typedef
