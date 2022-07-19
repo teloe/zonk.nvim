@@ -3,20 +3,25 @@ local hsl = lush.hsl
 
 -- Color definitions
 local c = {
-    bg = "#2b2b2b",
+    bg = "#161616",
     -- bg = "#0f0f0f",
     fg = "#e1e1e1",
     lineNrbg = "#4F4C4C",
     lineNrfg = "#808080",
     cmnt = "#686868",
     blue = "#7D83F4",
+    blue1 = "#8AA6EB",
     purple = "#A1A1F8",
+    purple1 = "#5f5f87",
+    purple2 = "#AD7FA8",
     yellow = "#CBCA67",
     brown = "#B8A47A",
+    hitgray = "#a5b4bb",
     cyan = "#73C1DB",
     orange = "#DBA251",
     green = "#6BF549",
     darkgreen = "#4F86A9",
+    darkgreen1 = "#5f8787",
     red = "#A14A60",
     visual = "#574B5A",
     nontxt = "#423F3F",
@@ -33,6 +38,19 @@ local c = {
 ---@diagnostic disable: undefined-global
 local theme = lush(function()
   return {
+    -- NvimTreeRootFolder  { fg = c.search },
+    -- NvimTreeSpecialFile  { fg = c.search, gui = "underline, bold" },
+    NvimTreeNormal { bg = "#202020" },
+    NvimTreeWinSeparator { fg = c.bg, bg = "none" },
+
+    -- GitSignsAdd     { fg = c.diffa },
+    -- GitGutterAdd    { GitSignsAdd },
+    -- GitSignsChange  { fg = c.diffc },
+    -- GitGutterChange { GitSignsChange },
+    -- GitSignsDelete  { fg = c.diffd },
+    -- GitGutterDelete { GitSignsDelete },
+
+    CmpItemKind { fg = c.gray1 },
     --
     -- ColorColumn  { }, -- Columns set with 'colorcolumn'
     -- Conceal      { }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
@@ -100,10 +118,10 @@ local theme = lush(function()
     --
     -- Uncomment and edit if you want more specific syntax highlighting.
 
-    Comment        { fg = c.cmnt, gui = "italic" }, -- Any comment
+    Comment        { fg = c.purple1 }, -- Any comment
 
     Constant       { fg = c.fg }, -- (*) Any constant
-    String         { fg = c.brown }, --   A string constant: "this is a string"
+    String         { fg = c.darkgreen1 }, --   A string constant: "this is a string"
     -- Character      { }, --   A character constant: 'c', '\n'
     Number         { fg = c.green }, --   A number constant: 234, 0xff
     Boolean        { fg = c.orange, gui = "bold" }, --   A boolean constant: TRUE, false
@@ -112,7 +130,7 @@ local theme = lush(function()
     Identifier     { fg = c.fg }, -- (*) Any variable name
     -- Function       { }, --   Function name (also: methods for classes)
 
-    Statement      { fg = c.fg, gui = "bold" }, -- (*) Any statement
+    Statement      { fg = c.hitgray, gui = "bold" }, -- (*) Any statement
     Conditional    { fg = c.yellow }, --   if, then, else, endif, switch, etc.
     -- Repeat         { }, --   for, do, while, etc.
     -- Label          { }, --   case, default, etc.
@@ -127,7 +145,7 @@ local theme = lush(function()
     -- Macro          { }, --   Same as Define
     -- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
 
-    Type           { fg = c.purple }, -- (*) int, long, char, etc.
+    Type           { fg = c.fg }, -- (*) int, long, char, etc.
     -- StorageClass   { }, --   static, register, volatile, etc.
     -- Structure      { }, --   struct, union, enum, etc.
     -- Typedef        { }, --   A typedef
@@ -135,7 +153,7 @@ local theme = lush(function()
     Special        { Statement }, -- (*) Any special symbol
     -- SpecialChar    { }, --   Special character in a constant
     -- Tag            { }, --   You can use CTRL-] on this
-    Delimiter      { fg = c.cyan }, --   Character that needs attention
+    Delimiter      { fg = c.gray1 }, --   Character that needs attention
     htmlTag        { Delimiter }, --    debugging statements
     htmlEndTag     { Delimiter }, --    debugging statements
     -- SpecialComment { }, --   Special things inside a comment (e.g. '\n')
