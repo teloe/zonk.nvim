@@ -3,20 +3,21 @@ local hsl = lush.hsl
 
 -- Color definitions
 local c = {
-    bg = "#161616",
-    -- bg = "#0f0f0f",
+    -- bg = "#1d1d1d",
+    bg = "#2a2a2a",
     fg = "#e1e1e1",
     lineNrbg = "#4F4C4C",
     lineNrfg = "#808080",
-    cmnt = "#686868",
+    cmnt = "#586469",
     blue = "#7D83F4",
+    blue0 = "#8283AD",
     blue1 = "#8AA6EB",
     purple = "#A1A1F8",
     purple1 = "#5f5f87",
-    purple2 = "#AD7FA8",
+    purple2 = "#8E6F89",
     yellow = "#CBCA67",
     brown = "#B8A47A",
-    hitgray = "#a5b4bb",
+    brown1 = "#9a8f89",
     cyan = "#73C1DB",
     orange = "#DBA251",
     green = "#6BF549",
@@ -30,6 +31,10 @@ local c = {
     gray1 = '#707070',
     gray2 = '#444444',
     gray3 = '#212121',
+    diffa = '#406742',
+    diffc = '#466177',
+    diffd = '#82505E',
+    difft = '#5D809B',
 
 }
 
@@ -40,15 +45,15 @@ local theme = lush(function()
   return {
     -- NvimTreeRootFolder  { fg = c.search },
     -- NvimTreeSpecialFile  { fg = c.search, gui = "underline, bold" },
-    NvimTreeNormal { bg = "#202020" },
+    NvimTreeNormal { bg = "#252525" },
     NvimTreeWinSeparator { fg = c.bg, bg = "none" },
 
-    -- GitSignsAdd     { fg = c.diffa },
-    -- GitGutterAdd    { GitSignsAdd },
-    -- GitSignsChange  { fg = c.diffc },
-    -- GitGutterChange { GitSignsChange },
-    -- GitSignsDelete  { fg = c.diffd },
-    -- GitGutterDelete { GitSignsDelete },
+    GitSignsAdd     { fg = c.diffa },
+    GitGutterAdd    { GitSignsAdd },
+    GitSignsChange  { fg = c.diffc },
+    GitGutterChange { GitSignsChange },
+    GitSignsDelete  { fg = c.diffd },
+    GitGutterDelete { GitSignsDelete },
 
     CmpItemKind { fg = c.gray1 },
     --
@@ -76,7 +81,7 @@ local theme = lush(function()
     -- Substitute   { }, -- |:substitute| replacement text highlighting
     LineNr       { bg = "none", fg = c.lineNrfg }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     -- CursorLineNr { }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-    -- MatchParen   { }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    MatchParen   { fg = c.fg, bg = "#3C898A" }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     -- ModeMsg      { }, -- 'showmode' message (e.g., "-- INSERT -- ")
     -- MsgArea      { }, -- Area for messages and cmdline
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
@@ -118,28 +123,28 @@ local theme = lush(function()
     --
     -- Uncomment and edit if you want more specific syntax highlighting.
 
-    Comment        { fg = c.purple1 }, -- Any comment
+    Comment        { fg = c.cmnt }, -- Any comment
 
     Constant       { fg = c.fg }, -- (*) Any constant
     String         { fg = c.darkgreen1 }, --   A string constant: "this is a string"
     -- Character      { }, --   A character constant: 'c', '\n'
     Number         { fg = c.green }, --   A number constant: 234, 0xff
-    Boolean        { fg = c.orange, gui = "bold" }, --   A boolean constant: TRUE, false
+    Boolean        { fg = '#6886AB', gui = "bold" }, --   A boolean constant: TRUE, false
     -- Float          { }, --   A floating point constant: 2.3e10
 
     Identifier     { fg = c.fg }, -- (*) Any variable name
     -- Function       { }, --   Function name (also: methods for classes)
 
-    Statement      { fg = c.hitgray, gui = "bold" }, -- (*) Any statement
-    Conditional    { fg = c.yellow }, --   if, then, else, endif, switch, etc.
+    Statement      { fg = '#BCBCBC', gui = "bold" }, -- (*) Any statement
+    Conditional    { fg = '#9474a9' }, --   if, then, else, endif, switch, etc.
     -- Repeat         { }, --   for, do, while, etc.
     -- Label          { }, --   case, default, etc.
-    Operator       { fg = c.cyan }, --   "sizeof", "+", "*", etc.
-    Keyword        { fg = c.fg, gui = "bold" }, --   any other keyword
+    Operator       { fg = '#6886AB' }, --   "sizeof", "+", "*", etc.
+    Keyword        { fg = '#A46321', gui = "bold" }, --   any other keyword
     -- Function        { fg = c.fg, gui = "bold" },
     -- Exception      { }, --   try, catch, throw
 
-    PreProc        { fg = c.blue, gui = "bold" }, -- (*) Generic Preprocessor
+    PreProc        { fg ='#9474a9', gui = "bold" }, -- (*) Generic Preprocessor
     -- Include        { }, --   Preprocessor #include
     -- Define         { }, --   Preprocessor #define
     -- Macro          { }, --   Same as Define
@@ -153,7 +158,7 @@ local theme = lush(function()
     Special        { Statement }, -- (*) Any special symbol
     -- SpecialChar    { }, --   Special character in a constant
     -- Tag            { }, --   You can use CTRL-] on this
-    Delimiter      { fg = c.gray1 }, --   Character that needs attention
+    Delimiter      { fg = '#6886AB' }, --   Character that needs attention
     htmlTag        { Delimiter }, --    debugging statements
     htmlEndTag     { Delimiter }, --    debugging statements
     -- SpecialComment { }, --   Special things inside a comment (e.g. '\n')
