@@ -3,8 +3,8 @@ local hsl = lush.hsl
 
 -- Color definitions
 local c = {
-    -- bg = "#1d1d1d",
-    bg = "#2a2a2a",
+    -- bg = "#161616",
+    bg = "#262626",
     fg = "#e1e1e1",
     lineNrbg = "#4F4C4C",
     lineNrfg = "#808080",
@@ -12,15 +12,19 @@ local c = {
     blue = "#7D83F4",
     blue0 = "#8283AD",
     blue1 = "#8AA6EB",
+    blue2 = "#A8B4BA",
     purple = "#A1A1F8",
     purple1 = "#5f5f87",
     purple2 = "#8E6F89",
+    purple3 = "#5B5460",
     yellow = "#CBCA67",
     brown = "#B8A47A",
     brown1 = "#9a8f89",
     cyan = "#73C1DB",
     orange = "#DBA251",
     green = "#6BF549",
+    keywrd = "#967372",
+    keywrd1 = "#93746F",
     darkgreen = "#4F86A9",
     darkgreen1 = "#5f8787",
     red = "#A14A60",
@@ -45,7 +49,7 @@ local theme = lush(function()
   return {
     -- NvimTreeRootFolder  { fg = c.search },
     -- NvimTreeSpecialFile  { fg = c.search, gui = "underline, bold" },
-    NvimTreeNormal { bg = "#252525" },
+    NvimTreeNormal { bg = "#1d1d1d" },
     NvimTreeWinSeparator { fg = c.bg, bg = "none" },
 
     GitSignsAdd     { fg = c.diffa },
@@ -123,28 +127,28 @@ local theme = lush(function()
     --
     -- Uncomment and edit if you want more specific syntax highlighting.
 
-    Comment        { fg = c.cmnt }, -- Any comment
+    Comment        { fg = c.purple1 }, -- Any comment
 
     Constant       { fg = c.fg }, -- (*) Any constant
     String         { fg = c.darkgreen1 }, --   A string constant: "this is a string"
     -- Character      { }, --   A character constant: 'c', '\n'
     Number         { fg = c.green }, --   A number constant: 234, 0xff
-    Boolean        { fg = '#6886AB', gui = "bold" }, --   A boolean constant: TRUE, false
+    Boolean        { fg = '#87afaf', gui = "bold" }, --   A boolean constant: TRUE, false
     -- Float          { }, --   A floating point constant: 2.3e10
 
     Identifier     { fg = c.fg }, -- (*) Any variable name
     -- Function       { }, --   Function name (also: methods for classes)
 
     Statement      { fg = '#BCBCBC', gui = "bold" }, -- (*) Any statement
-    Conditional    { fg = '#9474a9' }, --   if, then, else, endif, switch, etc.
+    Conditional    { fg =  c.fg }, --   if, then, else, endif, switch, etc.
     -- Repeat         { }, --   for, do, while, etc.
     -- Label          { }, --   case, default, etc.
     Operator       { fg = '#6886AB' }, --   "sizeof", "+", "*", etc.
-    Keyword        { fg = '#A46321', gui = "bold" }, --   any other keyword
+    Keyword        { fg = c.keywrd1, gui = "bold" }, --   any other keyword
     -- Function        { fg = c.fg, gui = "bold" },
     -- Exception      { }, --   try, catch, throw
 
-    PreProc        { fg ='#9474a9', gui = "bold" }, -- (*) Generic Preprocessor
+    PreProc        { fg = '#6886AB', gui = "bold" }, -- (*) Generic Preprocessor
     -- Include        { }, --   Preprocessor #include
     -- Define         { }, --   Preprocessor #define
     -- Macro          { }, --   Same as Define
@@ -161,8 +165,8 @@ local theme = lush(function()
     Delimiter      { fg = '#6886AB' }, --   Character that needs attention
     htmlTag        { Delimiter }, --    debugging statements
     htmlEndTag     { Delimiter }, --    debugging statements
-    -- SpecialComment { }, --   Special things inside a comment (e.g. '\n')
-    -- Debug          { }, --   Debugging statements
+    SpecialComment { fg = c.gray1 }, --   Special things inside a comment (e.g. '\n')
+    Debug          { SpecialComment }, --   Debugging statements
 
     -- Underlined     { gui = "underline" }, -- Text that stands out, HTML links
     -- Ignore         { }, -- Left blank, hidden |hl-Ignore| (NOTE: May be invisible here in template)
