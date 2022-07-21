@@ -4,8 +4,9 @@ local hsl = lush.hsl
 -- Color definitions
 local c = {
     -- bg = "#161616",
-    bg = "#262626",
+    bg = "#2a2a2a",
     fg = "#e1e1e1",
+    white= "#ffffff",
     lineNrbg = "#4F4C4C",
     lineNrfg = "#808080",
     cmnt = "#586469",
@@ -13,22 +14,30 @@ local c = {
     blue0 = "#8283AD",
     blue1 = "#8AA6EB",
     blue2 = "#A8B4BA",
+    soblue = "#90ABCB",
     purple = "#A1A1F8",
     purple1 = "#5f5f87",
     purple2 = "#8E6F89",
     purple3 = "#5B5460",
+    sopurple = "#75759f",
     yellow = "#CBCA67",
     brown = "#B8A47A",
     brown1 = "#9a8f89",
     cyan = "#73C1DB",
+    obcyan = "#34E2E2",
     orange = "#DBA251",
+    soorange = "#E39858",
     green = "#6BF549",
+    sogreen = "#B7BD73",
     keywrd = "#967372",
     keywrd1 = "#93746F",
     darkgreen = "#4F86A9",
     darkgreen1 = "#5f8787",
     red = "#A14A60",
+    red1 = "#9d1c1c",
+    ffred = "#E36863",
     visual = "#574B5A",
+    vis1 = "#2E3845",
     nontxt = "#423F3F",
     statusln = '#353535',
     folded = '#181818',
@@ -49,7 +58,7 @@ local theme = lush(function()
   return {
     -- NvimTreeRootFolder  { fg = c.search },
     -- NvimTreeSpecialFile  { fg = c.search, gui = "underline, bold" },
-    NvimTreeNormal { bg = "#1d1d1d" },
+    NvimTreeNormal { bg = "#262626" },
     NvimTreeWinSeparator { fg = c.bg, bg = "none" },
 
     GitSignsAdd     { fg = c.diffa },
@@ -111,8 +120,8 @@ local theme = lush(function()
     -- TabLine      { }, -- Tab pages line, not active tab page label
     -- TabLineFill  { }, -- Tab pages line, where there are no labels
     -- TabLineSel   { }, -- Tab pages line, active tab page label
-    Title        { fg = c.green }, -- Titles for output from ":set all", ":autocmd" etc.
-    Visual       { bg = c.visual, fg = "none" }, -- Visual mode selection
+    -- Title        { fg = c.green }, -- Titles for output from ":set all", ":autocmd" etc.
+    Visual       { bg = c.vis1, fg = "none" }, -- Visual mode selection
     -- VisualNOS    { }, -- Visual mode selection when vim is "Not Owning the Selection".
     -- WarningMsg   { }, -- Warning messages
     -- Whitespace   { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
@@ -129,32 +138,32 @@ local theme = lush(function()
 
     Comment        { fg = c.purple1 }, -- Any comment
 
-    Constant       { fg = c.fg }, -- (*) Any constant
-    String         { fg = c.darkgreen1 }, --   A string constant: "this is a string"
+    Constant       { fg = c.sopurple }, -- (*) Any constant
+    String         { fg = c.sogreen }, --   A string constant: "this is a string"
     -- Character      { }, --   A character constant: 'c', '\n'
-    Number         { fg = c.green }, --   A number constant: 234, 0xff
-    Boolean        { fg = '#87afaf', gui = "bold" }, --   A boolean constant: TRUE, false
+    Number         { fg = c.obcyan }, --   A number constant: 234, 0xff
+    Boolean        { fg = c.green, gui = "bold" }, --   A boolean constant: TRUE, false
     -- Float          { }, --   A floating point constant: 2.3e10
 
-    Identifier     { fg = c.fg }, -- (*) Any variable name
+    Identifier     { fg = '#959E99' }, -- (*) Any variable name
     -- Function       { }, --   Function name (also: methods for classes)
 
-    Statement      { fg = '#BCBCBC', gui = "bold" }, -- (*) Any statement
-    Conditional    { fg =  c.fg }, --   if, then, else, endif, switch, etc.
+    Statement      { fg = c.fg, gui = "bold" }, -- (*) Any statement
+    -- Conditional    { fg =  c.fg }, --   if, then, else, endif, switch, etc.
     -- Repeat         { }, --   for, do, while, etc.
     -- Label          { }, --   case, default, etc.
-    Operator       { fg = '#6886AB' }, --   "sizeof", "+", "*", etc.
-    Keyword        { fg = c.keywrd1, gui = "bold" }, --   any other keyword
+    -- Operator       { fg = '#6886AB' }, --   "sizeof", "+", "*", etc.
+    -- Keyword        { fg = c.keywrd1 }, --   any other keyword
     -- Function        { fg = c.fg, gui = "bold" },
     -- Exception      { }, --   try, catch, throw
 
-    PreProc        { fg = '#6886AB', gui = "bold" }, -- (*) Generic Preprocessor
+    PreProc        { fg = c.soblue }, -- (*) Generic Preprocessor
     -- Include        { }, --   Preprocessor #include
     -- Define         { }, --   Preprocessor #define
     -- Macro          { }, --   Same as Define
     -- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
 
-    Type           { fg = c.fg }, -- (*) int, long, char, etc.
+    Type           { fg = '#959E99' }, -- (*) int, long, char, etc.
     -- StorageClass   { }, --   static, register, volatile, etc.
     -- Structure      { }, --   struct, union, enum, etc.
     -- Typedef        { }, --   A typedef
@@ -162,11 +171,11 @@ local theme = lush(function()
     Special        { Statement }, -- (*) Any special symbol
     -- SpecialChar    { }, --   Special character in a constant
     -- Tag            { }, --   You can use CTRL-] on this
-    Delimiter      { fg = '#6886AB' }, --   Character that needs attention
+    Delimiter      { fg = c.soblue }, --   Character that needs attention
     htmlTag        { Delimiter }, --    debugging statements
     htmlEndTag     { Delimiter }, --    debugging statements
-    SpecialComment { fg = c.gray1 }, --   Special things inside a comment (e.g. '\n')
-    Debug          { SpecialComment }, --   Debugging statements
+    -- SpecialComment { fg = c.gray1 }, --   Special things inside a comment (e.g. '\n')
+    -- Debug          { SpecialComment }, --   Debugging statements
 
     -- Underlined     { gui = "underline" }, -- Text that stands out, HTML links
     -- Ignore         { }, -- Left blank, hidden |hl-Ignore| (NOTE: May be invisible here in template)
