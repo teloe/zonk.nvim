@@ -40,7 +40,7 @@ local c = {
     vis1 = "#2E3845",
     nontxt = "#423F3F",
     statusln = '#353535',
-    folded = '#181818',
+    folded = '#222222',
     gray1 = '#707070',
     gray2 = '#444444',
     gray3 = '#212121',
@@ -138,14 +138,14 @@ local theme = lush(function()
 
     Comment        { fg = c.purple1 }, -- Any comment
 
-    Constant       { fg = c.sopurple }, -- (*) Any constant
+    Constant       { fg = '#697FBE' }, -- (*) Any constant
     String         { fg = c.sogreen }, --   A string constant: "this is a string"
     -- Character      { }, --   A character constant: 'c', '\n'
     Number         { fg = c.obcyan }, --   A number constant: 234, 0xff
-    Boolean        { fg = c.green, gui = "bold" }, --   A boolean constant: TRUE, false
+    Boolean        { fg = c.green }, --   A boolean constant: TRUE, false
     -- Float          { }, --   A floating point constant: 2.3e10
 
-    Identifier     { fg = '#959E99' }, -- (*) Any variable name
+    Identifier     { fg = '#a9aeb1' }, -- (*) Any variable name
     -- Function       { }, --   Function name (also: methods for classes)
 
     Statement      { fg = c.fg, gui = "bold" }, -- (*) Any statement
@@ -163,7 +163,7 @@ local theme = lush(function()
     -- Macro          { }, --   Same as Define
     -- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
 
-    Type           { fg = '#959E99' }, -- (*) int, long, char, etc.
+    Type           { fg = '#a9aeb1' }, -- (*) int, long, char, etc.
     -- StorageClass   { }, --   static, register, volatile, etc.
     -- Structure      { }, --   struct, union, enum, etc.
     -- Typedef        { }, --   A typedef
@@ -199,8 +199,8 @@ local theme = lush(function()
     --
     -- DiagnosticError            { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticWarn             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    -- DiagnosticInfo             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    -- DiagnosticHint             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticInfo             { fg = c.difft } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticHint             { bg = '#262626', fg = c.difft } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticVirtualTextError { } , -- Used for "Error" diagnostic virtual text.
     -- DiagnosticVirtualTextWarn  { } , -- Used for "Warn" diagnostic virtual text.
     -- DiagnosticVirtualTextInfo  { } , -- Used for "Info" diagnostic virtual text.
