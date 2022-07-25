@@ -15,10 +15,13 @@ local c = {
     blue1 = "#8AA6EB",
     blue2 = "#A8B4BA",
     soblue = "#90ABCB",
+    twiliblue = '#7886A3',
     purple = "#A1A1F8",
     purple1 = "#5f5f87",
     purple2 = "#8E6F89",
     purple3 = "#5B5460",
+    twilipurple = '#97869B',
+    twilibrown = '#A78A61',
     sopurple = "#75759f",
     yellow = "#CBCA67",
     brown = "#B8A47A",
@@ -120,7 +123,7 @@ local theme = lush(function()
     -- TabLine      { }, -- Tab pages line, not active tab page label
     -- TabLineFill  { }, -- Tab pages line, where there are no labels
     -- TabLineSel   { }, -- Tab pages line, active tab page label
-    -- Title        { fg = c.green }, -- Titles for output from ":set all", ":autocmd" etc.
+    -- Title        { fg = c.obcyan }, -- Titles for output from ":set all", ":autocmd" etc.
     Visual       { bg = c.vis1, fg = "none" }, -- Visual mode selection
     -- VisualNOS    { }, -- Visual mode selection when vim is "Not Owning the Selection".
     -- WarningMsg   { }, -- Warning messages
@@ -138,7 +141,7 @@ local theme = lush(function()
 
     Comment        { fg = c.purple1 }, -- Any comment
 
-    Constant       { fg = '#697FBE' }, -- (*) Any constant
+    Constant       { fg = c.darkgreen1 }, -- (*) Any constant
     String         { fg = c.sogreen }, --   A string constant: "this is a string"
     -- Character      { }, --   A character constant: 'c', '\n'
     Number         { fg = c.obcyan }, --   A number constant: 234, 0xff
@@ -157,7 +160,7 @@ local theme = lush(function()
     -- Function        { fg = c.fg, gui = "bold" },
     -- Exception      { }, --   try, catch, throw
 
-    PreProc        { fg = c.soblue }, -- (*) Generic Preprocessor
+    PreProc        { fg = c.twiliblue }, -- (*) Generic Preprocessor
     -- Include        { }, --   Preprocessor #include
     -- Define         { }, --   Preprocessor #define
     -- Macro          { }, --   Same as Define
