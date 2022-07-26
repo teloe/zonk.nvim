@@ -4,7 +4,7 @@ local hsl = lush.hsl
 -- Color definitions
 local c = {
     -- bg = "#161616",
-    bg = "#2a2a2a",
+    bg = "#202020",
     fg = "#e1e1e1",
     white= "#ffffff",
     lineNrbg = "#4F4C4C",
@@ -43,7 +43,7 @@ local c = {
     vis1 = "#2E3845",
     nontxt = "#423F3F",
     statusln = '#353535',
-    folded = '#222222',
+    folded = '#161616',
     gray1 = '#707070',
     gray2 = '#444444',
     gray3 = '#212121',
@@ -51,6 +51,20 @@ local c = {
     diffc = '#466177',
     diffd = '#82505E',
     difft = '#5D809B',
+
+    -- vividchalk
+    purpcmnt = "#9933cc",
+    pmenubg = "#000099",
+    pmenusel = "#5555ff",
+    matchp = "#1100AA",
+    const = "#339999",
+    type = "#AAAA77",
+    regexp = "#44B4CC",
+    func = "#DDE93D",
+    strng = "#66FF00",
+    -- distinguished
+    disttype = "#5f87af",
+    distconst = "#af875f",
 
 }
 
@@ -71,7 +85,7 @@ local theme = lush(function()
     GitSignsDelete  { fg = c.diffd },
     GitGutterDelete { GitSignsDelete },
 
-    CmpItemKind { fg = c.gray1 },
+    CmpItemKind { fg = c.fg },
     --
     -- ColorColumn  { }, -- Columns set with 'colorcolumn'
     -- Conceal      { }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
@@ -97,7 +111,7 @@ local theme = lush(function()
     -- Substitute   { }, -- |:substitute| replacement text highlighting
     LineNr       { bg = "none", fg = c.lineNrfg }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     -- CursorLineNr { }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-    MatchParen   { fg = c.fg, bg = "#3C898A" }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    MatchParen   { fg = c.fg, bg = c.matchp }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     -- ModeMsg      { }, -- 'showmode' message (e.g., "-- INSERT -- ")
     -- MsgArea      { }, -- Area for messages and cmdline
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
@@ -106,8 +120,8 @@ local theme = lush(function()
     Normal       { bg = c.bg, fg = c.fg }, -- Normal text
     -- NormalFloat  { }, -- Normal text in floating windows.
     -- NormalNC     { }, -- normal text in non-current windows
-    Pmenu        { bg = c.gray3 }, -- Popup menu: Normal item.
-    PmenuSel     { bg = c.visual }, -- Popup menu: Selected item.
+    Pmenu        { bg = c.pmenubg }, -- Popup menu: Normal item.
+    PmenuSel     { bg = c.pmenusel }, -- Popup menu: Selected item.
     PmenuSbar    { bg = c.gray2 }, -- Popup menu: Scrollbar.
     PmenuThumb   { bg = c.gray1 }, -- Popup menu: Thumb of the scrollbar.
     -- Question     { }, -- |hit-enter| prompt and yes/no questions
@@ -139,10 +153,10 @@ local theme = lush(function()
     --
     -- Uncomment and edit if you want more specific syntax highlighting.
 
-    Comment        { fg = c.purple1 }, -- Any comment
+    Comment        { fg = c.purpcmnt }, -- Any comment
 
-    Constant       { fg = c.darkgreen1 }, -- (*) Any constant
-    String         { fg = c.sogreen }, --   A string constant: "this is a string"
+    Constant       { fg = c.distconst }, -- (*) Any constant
+    String         { fg = c.const }, --   A string constant: "this is a string"
     -- Character      { }, --   A character constant: 'c', '\n'
     Number         { fg = c.obcyan }, --   A number constant: 234, 0xff
     Boolean        { fg = c.green }, --   A boolean constant: TRUE, false
@@ -156,17 +170,17 @@ local theme = lush(function()
     -- Repeat         { }, --   for, do, while, etc.
     -- Label          { }, --   case, default, etc.
     -- Operator       { fg = '#6886AB' }, --   "sizeof", "+", "*", etc.
-    -- Keyword        { fg = c.keywrd1 }, --   any other keyword
-    -- Function        { fg = c.fg, gui = "bold" },
+    -- Keyword        { fg = c.func, gui = "bold" }, --   any other keyword
+    Function        { fg = c.fg, gui = "bold" },
     -- Exception      { }, --   try, catch, throw
 
-    PreProc        { fg = c.twiliblue }, -- (*) Generic Preprocessor
+    PreProc        { fg = c.disttype }, -- (*) Generic Preprocessor
     -- Include        { }, --   Preprocessor #include
     -- Define         { }, --   Preprocessor #define
     -- Macro          { }, --   Same as Define
     -- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
 
-    Type           { fg = '#a9aeb1' }, -- (*) int, long, char, etc.
+    Type           { Identifier }, -- (*) int, long, char, etc.
     -- StorageClass   { }, --   static, register, volatile, etc.
     -- Structure      { }, --   struct, union, enum, etc.
     -- Typedef        { }, --   A typedef
@@ -174,7 +188,7 @@ local theme = lush(function()
     Special        { Statement }, -- (*) Any special symbol
     -- SpecialChar    { }, --   Special character in a constant
     -- Tag            { }, --   You can use CTRL-] on this
-    Delimiter      { fg = c.soblue }, --   Character that needs attention
+    Delimiter      { fg = c.disttype }, --   Character that needs attention
     htmlTag        { Delimiter }, --    debugging statements
     htmlEndTag     { Delimiter }, --    debugging statements
     -- SpecialComment { fg = c.gray1 }, --   Special things inside a comment (e.g. '\n')
