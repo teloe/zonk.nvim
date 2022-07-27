@@ -3,8 +3,9 @@ local hsl = lush.hsl
 
 -- Color definitions
 local c = {
-    -- bg = "#161616",
-    bg = "#202020",
+    bg = "#26292e",
+    bg1 = "#222429",
+    -- bg = "#202020",
     fg = "#e1e1e1",
     white= "#ffffff",
     lineNrbg = "#4F4C4C",
@@ -44,6 +45,7 @@ local c = {
     nontxt = "#423F3F",
     statusln = '#353535',
     folded = '#161616',
+    folded1 = "#202227",
     gray1 = '#707070',
     gray2 = '#444444',
     gray3 = '#212121',
@@ -75,7 +77,7 @@ local theme = lush(function()
   return {
     -- NvimTreeRootFolder  { fg = c.search },
     -- NvimTreeSpecialFile  { fg = c.search, gui = "underline, bold" },
-    NvimTreeNormal { bg = "#262626" },
+    NvimTreeNormal { bg = c.bg1 },
     NvimTreeWinSeparator { fg = c.bg, bg = "none" },
 
     GitSignsAdd     { fg = c.diffa },
@@ -103,8 +105,8 @@ local theme = lush(function()
     -- TermCursor   { }, -- Cursor in a focused terminal
     -- TermCursorNC { }, -- Cursor in an unfocused terminal
     ErrorMsg     { fg = c.red }, -- Error messages on the command line
-    VertSplit    { bg = "none", fg = c.bg }, -- Column separating vertically split windows
-    Folded       { bg = c.folded, fg = c.cmnt }, -- Line used for closed folds
+    VertSplit    { bg = "none", fg = c.gray3 }, -- Column separating vertically split windows
+    Folded       { bg = c.folded1, fg = c.cmnt }, -- Line used for closed folds
     -- FoldColumn   { }, -- 'foldcolumn'
     SignColumn   { bg = "none" }, -- Column where |signs| are displayed
     -- IncSearch    { }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
@@ -120,8 +122,8 @@ local theme = lush(function()
     Normal       { bg = c.bg, fg = c.fg }, -- Normal text
     -- NormalFloat  { }, -- Normal text in floating windows.
     -- NormalNC     { }, -- normal text in non-current windows
-    Pmenu        { bg = c.pmenubg }, -- Popup menu: Normal item.
-    PmenuSel     { bg = c.pmenusel }, -- Popup menu: Selected item.
+    Pmenu        { bg = c.bg1 }, -- Popup menu: Normal item.
+    PmenuSel     { bg = c.pmenubg, fg = c.white }, -- Popup menu: Selected item.
     PmenuSbar    { bg = c.gray2 }, -- Popup menu: Scrollbar.
     PmenuThumb   { bg = c.gray1 }, -- Popup menu: Thumb of the scrollbar.
     -- Question     { }, -- |hit-enter| prompt and yes/no questions
@@ -158,7 +160,7 @@ local theme = lush(function()
     Constant       { fg = c.distconst }, -- (*) Any constant
     String         { fg = c.const }, --   A string constant: "this is a string"
     -- Character      { }, --   A character constant: 'c', '\n'
-    Number         { fg = c.obcyan }, --   A number constant: 234, 0xff
+    Number         { fg = c.distconst }, --   A number constant: 234, 0xff
     Boolean        { fg = c.green }, --   A boolean constant: TRUE, false
     -- Float          { }, --   A floating point constant: 2.3e10
 
@@ -180,7 +182,7 @@ local theme = lush(function()
     -- Macro          { }, --   Same as Define
     -- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
 
-    Type           { Identifier }, -- (*) int, long, char, etc.
+    Type           { fg = '#a9aeb1' }, -- (*) int, long, char, etc.
     -- StorageClass   { }, --   static, register, volatile, etc.
     -- Structure      { }, --   struct, union, enum, etc.
     -- Typedef        { }, --   A typedef
@@ -217,7 +219,7 @@ local theme = lush(function()
     -- DiagnosticError            { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticWarn             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticInfo             { fg = c.difft } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticHint             { bg = '#262626', fg = c.difft } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticHint             { bg = c.folded1, fg = c.difft } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticVirtualTextError { } , -- Used for "Error" diagnostic virtual text.
     -- DiagnosticVirtualTextWarn  { } , -- Used for "Warn" diagnostic virtual text.
     -- DiagnosticVirtualTextInfo  { } , -- Used for "Info" diagnostic virtual text.
