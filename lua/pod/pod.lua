@@ -3,9 +3,9 @@ local hsl = lush.hsl
 
 -- Color definitions
 local c = {
-    bg = "#26292e",
+    -- bg = "#26292e",
     bg1 = "#222429",
-    -- bg = "#202020",
+    bg = "#2a2a2a",
     fg = "#e1e1e1",
     white= "#ffffff",
     lineNrbg = "#4F4C4C",
@@ -24,6 +24,7 @@ local c = {
     twilipurple = '#97869B',
     twilibrown = '#A78A61',
     sopurple = "#75759f",
+    search  =  '#8283AD',
     yellow = "#CBCA67",
     brown = "#B8A47A",
     brown1 = "#9a8f89",
@@ -67,6 +68,15 @@ local c = {
     -- distinguished
     disttype = "#5f87af",
     distconst = "#af875f",
+    -- code-dark
+    cdstring = "#ce9178",
+    -- modus
+    import = '#F09E7E',
+    mdstring = '#82A7F8',
+    onegreen = '#6AE24D',
+    oneblue = '#6c81f1',
+    -- onedark
+    odcyan = '#56b6c2',
 
 }
 
@@ -158,7 +168,7 @@ local theme = lush(function()
     Comment        { fg = c.purpcmnt }, -- Any comment
 
     Constant       { fg = c.distconst }, -- (*) Any constant
-    String         { fg = c.const }, --   A string constant: "this is a string"
+    String         { fg = c.odcyan }, --   A string constant: "this is a string"
     -- Character      { }, --   A character constant: 'c', '\n'
     Number         { fg = c.distconst }, --   A number constant: 234, 0xff
     Boolean        { fg = c.green }, --   A boolean constant: TRUE, false
@@ -173,10 +183,10 @@ local theme = lush(function()
     -- Label          { }, --   case, default, etc.
     -- Operator       { fg = '#6886AB' }, --   "sizeof", "+", "*", etc.
     -- Keyword        { fg = c.func, gui = "bold" }, --   any other keyword
-    Function        { fg = c.fg, gui = "bold" },
+    Function        { fg = c.search },
     -- Exception      { }, --   try, catch, throw
 
-    PreProc        { fg = c.disttype }, -- (*) Generic Preprocessor
+    PreProc        { fg = c.search }, -- (*) Generic Preprocessor
     -- Include        { }, --   Preprocessor #include
     -- Define         { }, --   Preprocessor #define
     -- Macro          { }, --   Same as Define
