@@ -3,10 +3,11 @@ local hsl = lush.hsl
 
 -- Color definitions
 local c = {
-    -- bg = "#26292e",
-    bg1 = "#222429",
-    bg = "#2a2a2a",
+    bg = "#222429",
+    bg1 = "#26282e",
+    -- bg = "#2a2a2a",
     fg = "#e1e1e1",
+    fg1 = "#acb1bb",
     white= "#ffffff",
     lineNrbg = "#4F4C4C",
     lineNrfg = "#808080",
@@ -46,7 +47,7 @@ local c = {
     nontxt = "#423F3F",
     statusln = '#353535',
     folded = '#161616',
-    folded1 = "#202227",
+    folded1 = "#1d1f23",
     gray1 = '#707070',
     gray2 = '#444444',
     gray3 = '#212121',
@@ -149,7 +150,7 @@ local theme = lush(function()
     -- TabLine      { }, -- Tab pages line, not active tab page label
     -- TabLineFill  { }, -- Tab pages line, where there are no labels
     -- TabLineSel   { }, -- Tab pages line, active tab page label
-    -- Title        { fg = c.obcyan }, -- Titles for output from ":set all", ":autocmd" etc.
+    Title        { fg = c.odcyan }, -- Titles for output from ":set all", ":autocmd" etc.
     Visual       { bg = c.vis1, fg = "none" }, -- Visual mode selection
     -- VisualNOS    { }, -- Visual mode selection when vim is "Not Owning the Selection".
     -- WarningMsg   { }, -- Warning messages
@@ -168,13 +169,13 @@ local theme = lush(function()
     Comment        { fg = c.purpcmnt }, -- Any comment
 
     Constant       { fg = c.distconst }, -- (*) Any constant
-    String         { fg = c.odcyan }, --   A string constant: "this is a string"
+    String         { fg = c.search }, --   A string constant: "this is a string"
     -- Character      { }, --   A character constant: 'c', '\n'
     Number         { fg = c.distconst }, --   A number constant: 234, 0xff
-    Boolean        { fg = c.green }, --   A boolean constant: TRUE, false
+    Boolean        { fg = c.odcyan }, --   A boolean constant: TRUE, false
     -- Float          { }, --   A floating point constant: 2.3e10
 
-    Identifier     { fg = '#a9aeb1' }, -- (*) Any variable name
+    Identifier     { fg = c.fg1 }, -- (*) Any variable name
     -- Function       { }, --   Function name (also: methods for classes)
 
     Statement      { fg = c.fg, gui = "bold" }, -- (*) Any statement
@@ -192,7 +193,7 @@ local theme = lush(function()
     -- Macro          { }, --   Same as Define
     -- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
 
-    Type           { fg = '#a9aeb1' }, -- (*) int, long, char, etc.
+    Type           { fg = c.fg1 }, -- (*) int, long, char, etc.
     -- StorageClass   { }, --   static, register, volatile, etc.
     -- Structure      { }, --   struct, union, enum, etc.
     -- Typedef        { }, --   A typedef
@@ -200,7 +201,7 @@ local theme = lush(function()
     Special        { Statement }, -- (*) Any special symbol
     -- SpecialChar    { }, --   Special character in a constant
     -- Tag            { }, --   You can use CTRL-] on this
-    Delimiter      { fg = c.disttype }, --   Character that needs attention
+    Delimiter      { fg = c.fg1 }, --   Character that needs attention
     htmlTag        { Delimiter }, --    debugging statements
     htmlEndTag     { Delimiter }, --    debugging statements
     -- SpecialComment { fg = c.gray1 }, --   Special things inside a comment (e.g. '\n')
