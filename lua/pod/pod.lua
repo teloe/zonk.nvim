@@ -3,8 +3,12 @@ local hsl = lush.hsl
 
 -- Color definitions
 local c = {
-    bg = "#222429",
-    bg1 = "#26282e",
+    bg = "#282c34",
+    bg1 = "#31353f",
+    bg_d = "#21252b",
+    strng1 = "#70865E",
+    cmmmnt = "#5c6370",
+    imprt = "#7F7F7F",
     -- bg = "#2a2a2a",
     fg = "#e1e1e1",
     fg1 = "#acb1bb",
@@ -88,7 +92,7 @@ local theme = lush(function()
   return {
     -- NvimTreeRootFolder  { fg = c.search },
     -- NvimTreeSpecialFile  { fg = c.search, gui = "underline, bold" },
-    NvimTreeNormal { bg = c.bg1 },
+    NvimTreeNormal { bg = c.bg_d },
     NvimTreeWinSeparator { fg = c.bg, bg = "none" },
 
     GitSignsAdd     { fg = c.diffa },
@@ -117,7 +121,7 @@ local theme = lush(function()
     -- TermCursorNC { }, -- Cursor in an unfocused terminal
     ErrorMsg     { fg = c.red }, -- Error messages on the command line
     VertSplit    { bg = "none", fg = c.gray3 }, -- Column separating vertically split windows
-    Folded       { bg = c.folded1, fg = c.cmnt }, -- Line used for closed folds
+    Folded       { bg = c.bg_d, fg = c.cmnt }, -- Line used for closed folds
     -- FoldColumn   { }, -- 'foldcolumn'
     SignColumn   { bg = "none" }, -- Column where |signs| are displayed
     -- IncSearch    { }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
@@ -133,7 +137,7 @@ local theme = lush(function()
     Normal       { bg = c.bg, fg = c.fg }, -- Normal text
     -- NormalFloat  { }, -- Normal text in floating windows.
     -- NormalNC     { }, -- normal text in non-current windows
-    Pmenu        { bg = c.folded1 }, -- Popup menu: Normal item.
+    Pmenu        { bg = c.bg1 }, -- Popup menu: Normal item.
     PmenuSel     { bg = c.pmenubg, fg = c.white }, -- Popup menu: Selected item.
     PmenuSbar    { bg = c.gray2 }, -- Popup menu: Scrollbar.
     PmenuThumb   { bg = c.gray1 }, -- Popup menu: Thumb of the scrollbar.
@@ -168,14 +172,15 @@ local theme = lush(function()
 
     Comment        { fg = c.purpcmnt }, -- Any comment
 
-    Constant       { fg = c.distconst }, -- (*) Any constant
-    String         { fg = c.search }, --   A string constant: "this is a string"
+    Constant       { fg = c.imprt }, -- (*) Any constant
+    String         { fg = "#978F85" }, --   A string constant: "this is a string"
+    -- String         { fg = c.strng1 }, --   A string constant: "this is a string"
     -- Character      { }, --   A character constant: 'c', '\n'
-    Number         { fg = c.distconst }, --   A number constant: 234, 0xff
+    Number         { fg = c.odcyan }, --   A number constant: 234, 0xff
     Boolean        { fg = c.odcyan }, --   A boolean constant: TRUE, false
     -- Float          { }, --   A floating point constant: 2.3e10
 
-    Identifier     { fg = c.fg1 }, -- (*) Any variable name
+    Identifier     { fg = c.fg }, -- (*) Any variable name
     -- Function       { }, --   Function name (also: methods for classes)
 
     Statement      { fg = c.fg, gui = "bold" }, -- (*) Any statement
@@ -183,17 +188,17 @@ local theme = lush(function()
     -- Repeat         { }, --   for, do, while, etc.
     -- Label          { }, --   case, default, etc.
     -- Operator       { fg = '#6886AB' }, --   "sizeof", "+", "*", etc.
-    -- Keyword        { fg = c.func, gui = "bold" }, --   any other keyword
-    Function        { fg = c.search },
+    Keyword        { fg = "#BBEC4A", gui = "bold" }, --   any other keyword
+    Function        { fg = c.fg },
     -- Exception      { }, --   try, catch, throw
 
-    PreProc        { fg = c.search }, -- (*) Generic Preprocessor
+    PreProc        { fg = c.imprt }, -- (*) Generic Preprocessor
     -- Include        { }, --   Preprocessor #include
     -- Define         { }, --   Preprocessor #define
     -- Macro          { }, --   Same as Define
     -- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
 
-    Type           { fg = c.fg1 }, -- (*) int, long, char, etc.
+    Type           { fg = "#BBEC4A" }, -- (*) int, long, char, etc.
     -- StorageClass   { }, --   static, register, volatile, etc.
     -- Structure      { }, --   struct, union, enum, etc.
     -- Typedef        { }, --   A typedef
