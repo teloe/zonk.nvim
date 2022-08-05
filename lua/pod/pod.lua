@@ -5,6 +5,7 @@ local hsl = lush.hsl
 local c = {
     bg = "#282c34",
     bg1 = "#31353f",
+    bg2 = "#24282f",
     bg_d = "#21252b",
     strng1 = "#70865E",
     cmmmnt = "#5c6370",
@@ -92,7 +93,7 @@ local theme = lush(function()
   return {
     -- NvimTreeRootFolder  { fg = c.search },
     -- NvimTreeSpecialFile  { fg = c.search, gui = "underline, bold" },
-    NvimTreeNormal { bg = c.bg_d },
+    NvimTreeNormal { bg = c.bg2 },
     NvimTreeWinSeparator { fg = c.bg, bg = "none" },
 
     GitSignsAdd     { fg = c.diffa },
@@ -155,7 +156,7 @@ local theme = lush(function()
     -- TabLineFill  { }, -- Tab pages line, where there are no labels
     -- TabLineSel   { }, -- Tab pages line, active tab page label
     Title        { fg = c.odcyan }, -- Titles for output from ":set all", ":autocmd" etc.
-    Visual       { bg = c.vis1, fg = "none" }, -- Visual mode selection
+    Visual       { bg = c.visual, fg = "none" }, -- Visual mode selection
     -- VisualNOS    { }, -- Visual mode selection when vim is "Not Owning the Selection".
     -- WarningMsg   { }, -- Warning messages
     -- Whitespace   { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
@@ -172,7 +173,7 @@ local theme = lush(function()
 
     Comment        { fg = c.purpcmnt }, -- Any comment
 
-    Constant       { fg = c.imprt }, -- (*) Any constant
+    Constant       { fg = "#978F85" }, -- (*) Any constant
     String         { fg = "#978F85" }, --   A string constant: "this is a string"
     -- String         { fg = c.strng1 }, --   A string constant: "this is a string"
     -- Character      { }, --   A character constant: 'c', '\n'
@@ -189,10 +190,10 @@ local theme = lush(function()
     -- Label          { }, --   case, default, etc.
     -- Operator       { fg = '#6886AB' }, --   "sizeof", "+", "*", etc.
     Keyword        { fg = "#BBEC4A", gui = "bold" }, --   any other keyword
-    Function        { fg = c.fg },
+    Function        { fg = c.fg1 },
     -- Exception      { }, --   try, catch, throw
 
-    PreProc        { fg = c.imprt }, -- (*) Generic Preprocessor
+    PreProc        { fg = c.search }, -- (*) Generic Preprocessor
     -- Include        { }, --   Preprocessor #include
     -- Define         { }, --   Preprocessor #define
     -- Macro          { }, --   Same as Define
