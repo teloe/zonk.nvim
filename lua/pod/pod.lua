@@ -3,16 +3,19 @@ local hsl = lush.hsl
 
 -- Color definitions
 local c = {
-    bg = "#282c34",
+    -- bg = "#282c34",
+    bg = "#2a2a2a",
     bg1 = "#31353f",
-    bg2 = "#24282f",
-    bg_d = "#21252b",
+    -- bg2 = "#24282f",
+    bg2 = "#262626",
+    -- bg_d = "#21252b",
+    bg_d = "#222222",
     strng1 = "#70865E",
     cmmmnt = "#5c6370",
     imprt = "#7F7F7F",
     -- bg = "#2a2a2a",
     fg = "#e1e1e1",
-    fg1 = "#acb1bb",
+    fg1 = "#bababa",
     white= "#ffffff",
     lineNrbg = "#4F4C4C",
     lineNrfg = "#808080",
@@ -113,28 +116,28 @@ local theme = lush(function()
     -- CursorColumn { }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     -- CursorLine   { }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
     Directory    { fg = c.fg, gui = "bold" }, -- Directory names (and other special names in listings)
-    -- DiffAdd      { }, -- Diff mode: Added line |diff.txt|
-    -- DiffChange   { }, -- Diff mode: Changed line |diff.txt|
-    -- DiffDelete   { }, -- Diff mode: Deleted line |diff.txt|
-    -- DiffText     { }, -- Diff mode: Changed text within a changed line |diff.txt|
+    DiffAdd      { fg = c.diffa }, -- Diff mode: Added line |diff.txt|
+    DiffChange   { fg = c.diffc }, -- Diff mode: Changed line |diff.txt|
+    DiffDelete   { fg = c.diffd }, -- Diff mode: Deleted line |diff.txt|
+    DiffText     { fg = c.difft }, -- Diff mode: Changed text within a changed line |diff.txt|
     EndOfBuffer  { fg = c.gray2 }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
     -- TermCursor   { }, -- Cursor in a focused terminal
     -- TermCursorNC { }, -- Cursor in an unfocused terminal
     ErrorMsg     { fg = c.red }, -- Error messages on the command line
     VertSplit    { bg = "none", fg = c.gray3 }, -- Column separating vertically split windows
     Folded       { bg = c.bg_d, fg = c.cmnt }, -- Line used for closed folds
-    -- FoldColumn   { }, -- 'foldcolumn'
+    FoldColumn   { fg = c.cmnt }, -- 'foldcolumn'
     SignColumn   { bg = "none" }, -- Column where |signs| are displayed
     -- IncSearch    { }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     -- Substitute   { }, -- |:substitute| replacement text highlighting
     LineNr       { bg = "none", fg = c.lineNrfg }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-    -- CursorLineNr { }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+    CursorLineNr { fg = c.lineNrfg }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     MatchParen   { fg = c.fg, bg = c.matchp }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-    -- ModeMsg      { }, -- 'showmode' message (e.g., "-- INSERT -- ")
+    ModeMsg      { fg = c.search }, -- 'showmode' message (e.g., "-- INSERT -- ")
     -- MsgArea      { }, -- Area for messages and cmdline
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     -- MoreMsg      { }, -- |more-prompt|
-    NonText      { fg = c.nontxt }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+    NonText      { fg = c.bg1 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     Normal       { bg = c.bg, fg = c.fg }, -- Normal text
     -- NormalFloat  { }, -- Normal text in floating windows.
     -- NormalNC     { }, -- normal text in non-current windows
@@ -173,8 +176,8 @@ local theme = lush(function()
 
     Comment        { fg = c.purpcmnt }, -- Any comment
 
-    Constant       { fg = "#978F85" }, -- (*) Any constant
-    String         { fg = "#978F85" }, --   A string constant: "this is a string"
+    Constant       { fg = "#BBEC4A" }, -- (*) Any constant
+    String         { fg = c.search }, --   A string constant: "this is a string"
     -- String         { fg = c.strng1 }, --   A string constant: "this is a string"
     -- Character      { }, --   A character constant: 'c', '\n'
     Number         { fg = c.odcyan }, --   A number constant: 234, 0xff
@@ -182,15 +185,14 @@ local theme = lush(function()
     -- Float          { }, --   A floating point constant: 2.3e10
 
     Identifier     { fg = c.fg }, -- (*) Any variable name
-    -- Function       { }, --   Function name (also: methods for classes)
+    Function       { fg = c.white }, --   Function name (also: methods for classes)
 
     Statement      { fg = c.fg, gui = "bold" }, -- (*) Any statement
     -- Conditional    { fg =  c.fg }, --   if, then, else, endif, switch, etc.
     -- Repeat         { }, --   for, do, while, etc.
     -- Label          { }, --   case, default, etc.
     -- Operator       { fg = '#6886AB' }, --   "sizeof", "+", "*", etc.
-    Keyword        { fg = "#BBEC4A", gui = "bold" }, --   any other keyword
-    Function        { fg = c.fg1 },
+    Keyword        { fg = "#A46321", gui = "bold" }, --   any other keyword
     -- Exception      { }, --   try, catch, throw
 
     PreProc        { fg = c.search }, -- (*) Generic Preprocessor
@@ -199,7 +201,7 @@ local theme = lush(function()
     -- Macro          { }, --   Same as Define
     -- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
 
-    Type           { fg = "#BBEC4A" }, -- (*) int, long, char, etc.
+    Type           { fg = "#A46321" }, -- (*) int, long, char, etc.
     -- StorageClass   { }, --   static, register, volatile, etc.
     -- Structure      { }, --   struct, union, enum, etc.
     -- Typedef        { }, --   A typedef
@@ -236,7 +238,7 @@ local theme = lush(function()
     -- DiagnosticError            { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticWarn             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticInfo             { fg = c.difft } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticHint             { bg = c.folded1, fg = c.difft } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticHint             { bg = c.bg2, fg = c.difft } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticVirtualTextError { } , -- Used for "Error" diagnostic virtual text.
     -- DiagnosticVirtualTextWarn  { } , -- Used for "Warn" diagnostic virtual text.
     -- DiagnosticVirtualTextInfo  { } , -- Used for "Info" diagnostic virtual text.
@@ -244,7 +246,7 @@ local theme = lush(function()
     -- DiagnosticUnderlineError   { } , -- Used to underline "Error" diagnostics.
     -- DiagnosticUnderlineWarn    { } , -- Used to underline "Warn" diagnostics.
     -- DiagnosticUnderlineInfo    { } , -- Used to underline "Info" diagnostics.
-    -- DiagnosticUnderlineHint    { } , -- Used to underline "Hint" diagnostics.
+    DiagnosticUnderlineHint    { fg = c.difft, gui = "undercurl" } , -- Used to underline "Hint" diagnostics.
     -- DiagnosticFloatingError    { } , -- Used to color "Error" diagnostic messages in diagnostics float. See |vim.diagnostic.open_float()|
     -- DiagnosticFloatingWarn     { } , -- Used to color "Warn" diagnostic messages in diagnostics float.
     -- DiagnosticFloatingInfo     { } , -- Used to color "Info" diagnostic messages in diagnostics float.
