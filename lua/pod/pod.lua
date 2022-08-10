@@ -4,18 +4,20 @@ local hsl = lush.hsl
 -- Color definitions
 local c = {
     -- bg = "#282c34",
-    bg = "#2a2a2a",
+    bg = "#2b2b2b",
     bg1 = "#31353f",
     -- bg2 = "#24282f",
     bg2 = "#262626",
-    -- bg_d = "#21252b",
-    bg_d = "#222222",
+    bg_d = "#21252b",
+    -- bg_d = "#222222",
     strng1 = "#70865E",
     cmmmnt = "#5c6370",
+    greencmnt = "#5D6B61",
     imprt = "#7F7F7F",
     -- bg = "#2a2a2a",
     fg = "#e1e1e1",
-    fg1 = "#bababa",
+    -- fg1 = "#bababa",
+    fg1 = "#ABB7C4",
     white= "#ffffff",
     lineNrbg = "#4F4C4C",
     lineNrfg = "#808080",
@@ -141,7 +143,7 @@ local theme = lush(function()
     Normal       { bg = c.bg, fg = c.fg }, -- Normal text
     -- NormalFloat  { }, -- Normal text in floating windows.
     -- NormalNC     { }, -- normal text in non-current windows
-    Pmenu        { bg = c.bg1 }, -- Popup menu: Normal item.
+    Pmenu        { bg = c.bg_d }, -- Popup menu: Normal item.
     PmenuSel     { bg = c.pmenubg, fg = c.white }, -- Popup menu: Selected item.
     PmenuSbar    { bg = c.gray2 }, -- Popup menu: Scrollbar.
     PmenuThumb   { bg = c.gray1 }, -- Popup menu: Thumb of the scrollbar.
@@ -174,17 +176,17 @@ local theme = lush(function()
     --
     -- Uncomment and edit if you want more specific syntax highlighting.
 
-    Comment        { fg = c.purpcmnt }, -- Any comment
+    Comment        { fg = c.cmmmnt }, -- Any comment
 
-    Constant       { fg = "#BBEC4A" }, -- (*) Any constant
-    String         { fg = c.search }, --   A string constant: "this is a string"
+    Constant       { fg = c.fg }, -- (*) Any constant
+    String         { fg = c.strng1 }, --   A string constant: "this is a string"
     -- String         { fg = c.strng1 }, --   A string constant: "this is a string"
     -- Character      { }, --   A character constant: 'c', '\n'
     Number         { fg = c.odcyan }, --   A number constant: 234, 0xff
     Boolean        { fg = c.odcyan }, --   A boolean constant: TRUE, false
     -- Float          { }, --   A floating point constant: 2.3e10
 
-    Identifier     { fg = c.fg }, -- (*) Any variable name
+    Identifier     { fg = c.fg1 }, -- (*) Any variable name
     Function       { fg = c.white }, --   Function name (also: methods for classes)
 
     Statement      { fg = c.fg, gui = "bold" }, -- (*) Any statement
@@ -201,7 +203,7 @@ local theme = lush(function()
     -- Macro          { }, --   Same as Define
     -- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
 
-    Type           { fg = "#A46321" }, -- (*) int, long, char, etc.
+    Type           { fg = c.fg1 }, -- (*) int, long, char, etc.
     -- StorageClass   { }, --   static, register, volatile, etc.
     -- Structure      { }, --   struct, union, enum, etc.
     -- Typedef        { }, --   A typedef
@@ -212,8 +214,8 @@ local theme = lush(function()
     Delimiter      { fg = c.fg1 }, --   Character that needs attention
     htmlTag        { Delimiter }, --    debugging statements
     htmlEndTag     { Delimiter }, --    debugging statements
-    -- SpecialComment { fg = c.gray1 }, --   Special things inside a comment (e.g. '\n')
-    -- Debug          { SpecialComment }, --   Debugging statements
+    SpecialComment { fg = c.cmmmnt }, --   Special things inside a comment (e.g. '\n')
+    Debug          { SpecialComment }, --   Debugging statements
 
     -- Underlined     { gui = "underline" }, -- Text that stands out, HTML links
     -- Ignore         { }, -- Left blank, hidden |hl-Ignore| (NOTE: May be invisible here in template)
