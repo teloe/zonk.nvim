@@ -41,6 +41,7 @@ local c = {
     brown = "#B8A47A",
     brown1 = "#9a8f89",
     cyan = "#73C1DB",
+    cyan1 = "#87afaf",
     obcyan = "#34E2E2",
     orange = "#DBA251",
     soorange = "#E39858",
@@ -109,7 +110,7 @@ local theme = lush(function()
     GitSignsDelete  { fg = c.diffd },
     GitGutterDelete { GitSignsDelete },
 
-    CmpItemKind { fg = c.fg },
+    CmpItemKind { fg = c.fg2 },
     --
     -- ColorColumn  { }, -- Columns set with 'colorcolumn'
     -- Conceal      { }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
@@ -144,8 +145,8 @@ local theme = lush(function()
     Normal       { bg = c.bg, fg = c.fg }, -- Normal text
     -- NormalFloat  { }, -- Normal text in floating windows.
     -- NormalNC     { }, -- normal text in non-current windows
-    Pmenu        { bg = c.bg_d }, -- Popup menu: Normal item.
-    PmenuSel     { bg = c.bg2, fg = c.white }, -- Popup menu: Selected item.
+    Pmenu        { bg = c.bg_d, fg = c.fg2 }, -- Popup menu: Normal item.
+    PmenuSel     { bg = c.pmenubg, fg = c.white }, -- Popup menu: Selected item.
     PmenuSbar    { bg = c.gray2 }, -- Popup menu: Scrollbar.
     PmenuThumb   { bg = c.gray1 }, -- Popup menu: Thumb of the scrollbar.
     -- Question     { }, -- |hit-enter| prompt and yes/no questions
@@ -187,18 +188,18 @@ local theme = lush(function()
     Boolean        { fg = "#A46321" }, --   A boolean constant: TRUE, false
     -- Float          { }, --   A floating point constant: 2.3e10
 
-    Identifier     { fg = c.fg1 }, -- (*) Any variable name
-    Function       { fg = c.white }, --   Function name (also: methods for classes)
+    Identifier     { fg = c.fg }, -- (*) Any variable name
+    -- Function       { fg = c.fg2 }, --   Function name (also: methods for classes)
 
-    Statement      { fg = "#aeee00", gui = "bold" }, -- (*) Any statement
+    Statement      { fg = c.fg, gui = "bold" }, -- (*) Any statement
     Conditional    { fg =  "#aeee00" }, --   if, then, else, endif, switch, etc.
-    -- Repeat         { }, --   for, do, while, etc.
-    -- Label          { }, --   case, default, etc.
+    Repeat         { Conditional }, --   for, do, while, etc.
+    -- Label          { Conditional }, --   case, default, etc.
     Operator       { fg = '#aeee00' }, --   "sizeof", "+", "*", etc.
-    Keyword        { fg = "#A46321", gui = "bold" }, --   any other keyword
+    -- Keyword        { fg = "#A46321", gui = "bold" }, --   any other keyword
     -- Exception      { }, --   try, catch, throw
 
-    PreProc        { fg = c.search }, -- (*) Generic Preprocessor
+    PreProc        { fg = c.odcyan }, -- (*) Generic Preprocessor
     -- Include        { }, --   Preprocessor #include
     -- Define         { }, --   Preprocessor #define
     -- Macro          { }, --   Same as Define
@@ -214,7 +215,7 @@ local theme = lush(function()
     Special        { Statement }, -- (*) Any special symbol
     -- SpecialChar    { }, --   Special character in a constant
     -- Tag            { }, --   You can use CTRL-] on this
-    Delimiter      { fg = "#aeee00" }, --   Character that needs attention
+    Delimiter      { fg = c.fg2 }, --   Character that needs attention
     htmlTag        { Delimiter }, --    debugging statements
     htmlEndTag     { Delimiter }, --    debugging statements
     SpecialComment { fg = c.cmmmnt }, --   Special things inside a comment (e.g. '\n')
@@ -286,7 +287,7 @@ local theme = lush(function()
     -- TSFuncBuiltin        { } , -- Built-in functions: `print` in Lua.
     -- TSFuncMacro          { } , -- Macro defined functions (calls and definitions): each `macro_rules` in Rust.
     -- TSInclude            { } , -- File or module inclusion keywords: `#include` in C, `use` or `extern crate` in Rust.
-    TSKeyword            { fg = "#A46321" } , -- Keywords that don't fit into other categories.
+    -- TSKeyword            { } , -- Keywords that don't fit into other categories.
     -- TSKeywordFunction    { } , -- Keywords used to define a function: `function` in Lua, `def` and `lambda` in Python.
     -- TSKeywordOperator    { } , -- Unary and binary operators that are English words: `and`, `or` in Python; `sizeof` in C.
     -- TSKeywordReturn      { } , -- Keywords like `return` and `yield`.
