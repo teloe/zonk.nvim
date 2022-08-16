@@ -4,11 +4,12 @@ local hsl = lush.hsl
 -- Color definitions
 local c = {
     -- bg = "#282c34",
-    bg = "#2b2b2b",
+    -- bg = "#1B2029",
+    bg = "#21252b",
     bg1 = "#31353f",
-    -- bg2 = "#24282f",
-    bg2 = "#262626",
-    bg_d = "#21252b",
+    bg2 = "#24282f",
+    -- bg2 = "#262626",
+    bg_d = "#1b2029",
     -- bg_d = "#222222",
     strng1 = "#70865E",
     cmmmnt = "#5c6370",
@@ -16,7 +17,7 @@ local c = {
     imprt = "#7F7F7F",
     -- bg = "#2a2a2a",
     fg = "#e1e1e1",
-    -- fg1 = "#bababa",
+    fg2 = "#bababa",
     fg1 = "#ABB7C4",
     white= "#ffffff",
     lineNrbg = "#4F4C4C",
@@ -135,7 +136,7 @@ local theme = lush(function()
     LineNr       { bg = "none", fg = c.lineNrfg }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr { fg = c.lineNrfg }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     MatchParen   { fg = c.fg, bg = c.matchp }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-    ModeMsg      { fg = c.search }, -- 'showmode' message (e.g., "-- INSERT -- ")
+    -- ModeMsg      { }, -- 'showmode' message (e.g., "-- INSERT -- ")
     -- MsgArea      { }, -- Area for messages and cmdline
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     -- MoreMsg      { }, -- |more-prompt|
@@ -144,7 +145,7 @@ local theme = lush(function()
     -- NormalFloat  { }, -- Normal text in floating windows.
     -- NormalNC     { }, -- normal text in non-current windows
     Pmenu        { bg = c.bg_d }, -- Popup menu: Normal item.
-    PmenuSel     { bg = c.pmenubg, fg = c.white }, -- Popup menu: Selected item.
+    PmenuSel     { bg = c.bg2, fg = c.white }, -- Popup menu: Selected item.
     PmenuSbar    { bg = c.gray2 }, -- Popup menu: Scrollbar.
     PmenuThumb   { bg = c.gray1 }, -- Popup menu: Thumb of the scrollbar.
     -- Question     { }, -- |hit-enter| prompt and yes/no questions
@@ -176,24 +177,24 @@ local theme = lush(function()
     --
     -- Uncomment and edit if you want more specific syntax highlighting.
 
-    Comment        { fg = c.cmmmnt }, -- Any comment
+    Comment        { fg = c.purpcmnt }, -- Any comment
 
     Constant       { fg = c.fg }, -- (*) Any constant
-    String         { fg = c.strng1 }, --   A string constant: "this is a string"
+    String         { fg = "#998f84" }, --   A string constant: "this is a string"
     -- String         { fg = c.strng1 }, --   A string constant: "this is a string"
     -- Character      { }, --   A character constant: 'c', '\n'
-    Number         { fg = c.odcyan }, --   A number constant: 234, 0xff
-    Boolean        { fg = c.odcyan }, --   A boolean constant: TRUE, false
+    Number         { fg =  "#A46321" }, --   A number constant: 234, 0xff
+    Boolean        { fg = "#A46321" }, --   A boolean constant: TRUE, false
     -- Float          { }, --   A floating point constant: 2.3e10
 
     Identifier     { fg = c.fg1 }, -- (*) Any variable name
     Function       { fg = c.white }, --   Function name (also: methods for classes)
 
-    Statement      { fg = c.fg, gui = "bold" }, -- (*) Any statement
-    -- Conditional    { fg =  c.fg }, --   if, then, else, endif, switch, etc.
+    Statement      { fg = "#aeee00", gui = "bold" }, -- (*) Any statement
+    Conditional    { fg =  "#aeee00" }, --   if, then, else, endif, switch, etc.
     -- Repeat         { }, --   for, do, while, etc.
     -- Label          { }, --   case, default, etc.
-    -- Operator       { fg = '#6886AB' }, --   "sizeof", "+", "*", etc.
+    Operator       { fg = '#aeee00' }, --   "sizeof", "+", "*", etc.
     Keyword        { fg = "#A46321", gui = "bold" }, --   any other keyword
     -- Exception      { }, --   try, catch, throw
 
@@ -203,7 +204,9 @@ local theme = lush(function()
     -- Macro          { }, --   Same as Define
     -- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
 
-    Type           { fg = c.fg1 }, -- (*) int, long, char, etc.
+    -- Type           { fg = "#aeee00" }, -- (*) int, long, char, etc.
+    -- Type           { fg = "#A46321" }, -- (*) int, long, char, etc.
+    Type           { fg = c.fg }, -- (*) int, long, char, etc.
     -- StorageClass   { }, --   static, register, volatile, etc.
     -- Structure      { }, --   struct, union, enum, etc.
     -- Typedef        { }, --   A typedef
@@ -211,7 +214,7 @@ local theme = lush(function()
     Special        { Statement }, -- (*) Any special symbol
     -- SpecialChar    { }, --   Special character in a constant
     -- Tag            { }, --   You can use CTRL-] on this
-    Delimiter      { fg = c.fg1 }, --   Character that needs attention
+    Delimiter      { fg = "#aeee00" }, --   Character that needs attention
     htmlTag        { Delimiter }, --    debugging statements
     htmlEndTag     { Delimiter }, --    debugging statements
     SpecialComment { fg = c.cmmmnt }, --   Special things inside a comment (e.g. '\n')
@@ -283,7 +286,7 @@ local theme = lush(function()
     -- TSFuncBuiltin        { } , -- Built-in functions: `print` in Lua.
     -- TSFuncMacro          { } , -- Macro defined functions (calls and definitions): each `macro_rules` in Rust.
     -- TSInclude            { } , -- File or module inclusion keywords: `#include` in C, `use` or `extern crate` in Rust.
-    -- TSKeyword            { } , -- Keywords that don't fit into other categories.
+    TSKeyword            { fg = "#A46321" } , -- Keywords that don't fit into other categories.
     -- TSKeywordFunction    { } , -- Keywords used to define a function: `function` in Lua, `def` and `lambda` in Python.
     -- TSKeywordOperator    { } , -- Unary and binary operators that are English words: `and`, `or` in Python; `sizeof` in C.
     -- TSKeywordReturn      { } , -- Keywords like `return` and `yield`.
