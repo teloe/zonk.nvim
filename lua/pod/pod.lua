@@ -89,7 +89,8 @@ local c = {
     onegreen = '#6AE24D',
     oneblue = '#6c81f1',
     -- onedark
-    odcyan = '#56b6c2',
+    odcyan = '#34E2E2',
+    purp = "#5f5f87",
 
 }
 
@@ -199,7 +200,7 @@ local theme = lush(function()
     -- Keyword        { fg = "#A46321", gui = "bold" }, --   any other keyword
     -- Exception      { }, --   try, catch, throw
 
-    PreProc        { fg = c.odcyan }, -- (*) Generic Preprocessor
+    PreProc        { fg = c.search }, -- (*) Generic Preprocessor
     -- Include        { }, --   Preprocessor #include
     -- Define         { }, --   Preprocessor #define
     -- Macro          { }, --   Same as Define
@@ -244,7 +245,7 @@ local theme = lush(function()
     -- DiagnosticError            { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticWarn             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticInfo             { fg = c.difft } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticHint             { bg = c.bg2, fg = c.difft } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticHint             { bg = c.bg, fg = c.difft } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticVirtualTextError { } , -- Used for "Error" diagnostic virtual text.
     -- DiagnosticVirtualTextWarn  { } , -- Used for "Warn" diagnostic virtual text.
     -- DiagnosticVirtualTextInfo  { } , -- Used for "Info" diagnostic virtual text.
