@@ -1,6 +1,6 @@
 -- You probably always want to set this in your vim file
 vim.opt.background = 'dark'
-vim.g.colors_name = 'pod'
+vim.g.colors_name = 'zonk'
 
 -- By setting our module to nil, we clear lua's cache,
 -- which means the require ahead will *always* occur.
@@ -14,7 +14,7 @@ vim.g.colors_name = 'pod'
 --
 -- The performance impact of this call can be measured in the hundreds of
 -- *nanoseconds* and such could be considered "production safe".
-package.loaded['pod.pod'] = nil
+package.loaded['zonk.zonk'] = nil
 
 -- include our theme file and pass it to lush to apply
-require('lush')(require('pod.pod'))
+require('lush')(require('zonk.zonk'))

@@ -3,19 +3,13 @@ local hsl = lush.hsl
 
 -- Color definitions
 local c = {
-    -- bg = "#282c34",
-    -- bg = "#1B2029",
     bg = "#21252b",
     bg1 = "#31353f",
     bg2 = "#24282f",
-    -- bg2 = "#262626",
     bg_d = "#1b2029",
-    -- bg_d = "#222222",
     strng1 = "#70865E",
     cmmmnt = "#5c6370",
-    greencmnt = "#5D6B61",
     imprt = "#7F7F7F",
-    -- bg = "#2a2a2a",
     fg = "#e1e1e1",
     fg2 = "#bababa",
     fg1 = "#ABB7C4",
@@ -23,21 +17,11 @@ local c = {
     lineNrbg = "#4F4C4C",
     lineNrfg = "#808080",
     cmnt = "#586469",
-    blue = "#7D83F4",
-    blue0 = "#8283AD",
-    blue1 = "#8AA6EB",
-    blue2 = "#A8B4BA",
-    soblue = "#90ABCB",
-    twiliblue = '#7886A3',
     purple = "#A1A1F8",
     purple1 = "#5f5f87",
     purple2 = "#8E6F89",
     purple3 = "#5B5460",
-    twilipurple = '#97869B',
-    twilibrown = '#A78A61',
-    sopurple = "#75759f",
     search  =  '#8283AD',
-    yellow = "#CBCA67",
     brown = "#B8A47A",
     brown1 = "#9a8f89",
     cyan = "#73C1DB",
@@ -46,20 +30,11 @@ local c = {
     orange = "#DBA251",
     soorange = "#E39858",
     green = "#6BF549",
-    sogreen = "#B7BD73",
-    keywrd = "#967372",
-    keywrd1 = "#93746F",
     darkgreen = "#4F86A9",
     darkgreen1 = "#5f8787",
     red = "#A14A60",
-    red1 = "#9d1c1c",
-    ffred = "#E36863",
     visual = "#574B5A",
-    vis1 = "#2E3845",
     nontxt = "#423F3F",
-    statusln = '#353535',
-    folded = '#161616',
-    folded1 = "#1d1f23",
     gray1 = '#707070',
     gray2 = '#444444',
     gray3 = '#212121',
@@ -76,21 +51,7 @@ local c = {
     const = "#339999",
     type = "#AAAA77",
     regexp = "#44B4CC",
-    func = "#DDE93D",
     strng = "#66FF00",
-    -- distinguished
-    disttype = "#5f87af",
-    distconst = "#af875f",
-    -- code-dark
-    cdstring = "#ce9178",
-    -- modus
-    import = '#F09E7E',
-    mdstring = '#82A7F8',
-    onegreen = '#6AE24D',
-    oneblue = '#6c81f1',
-    -- onedark
-    odcyan = '#34E2E2',
-    purp = "#5f5f87",
 
 }
 
@@ -163,7 +124,7 @@ local theme = lush(function()
     -- TabLine      { }, -- Tab pages line, not active tab page label
     -- TabLineFill  { }, -- Tab pages line, where there are no labels
     -- TabLineSel   { }, -- Tab pages line, active tab page label
-    Title        { fg = c.odcyan }, -- Titles for output from ":set all", ":autocmd" etc.
+    Title        { fg = c.obcyan }, -- Titles for output from ":set all", ":autocmd" etc.
     Visual       { bg = c.visual, fg = "none" }, -- Visual mode selection
     -- VisualNOS    { }, -- Visual mode selection when vim is "Not Owning the Selection".
     -- WarningMsg   { }, -- Warning messages
