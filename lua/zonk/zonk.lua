@@ -3,14 +3,25 @@ local hsl = lush.hsl
 
 -- Color definitions
 local c = {
-    bg = "#21252b",
+
+    purp = "#675AC6",
+    grn = "#3C898A",
+    rd = "#983430",
+    org = "#A46321",
+    grrn = "#aeee00",
+
+
+
+    -- bg = "#21252b",
+    bg = "#2a2a2a",
     bg1 = "#31353f",
-    bg2 = "#24282f",
+    -- bg2 = "#24282f",
+    bg2 = "#242424",
     bg_d = "#1b2029",
     strng1 = "#70865E",
     cmmmnt = "#5c6370",
     imprt = "#7F7F7F",
-    fg = "#e1e1e1",
+    fg = "#ebebeb",
     fg2 = "#bababa",
     fg1 = "#ABB7C4",
     white= "#ffffff",
@@ -38,6 +49,7 @@ local c = {
     gray1 = '#707070',
     gray2 = '#444444',
     gray3 = '#212121',
+    gray4 = '#979797',
     diffa = '#406742',
     diffc = '#466177',
     diffd = '#82505E',
@@ -124,7 +136,7 @@ local theme = lush(function()
     -- TabLine      { }, -- Tab pages line, not active tab page label
     -- TabLineFill  { }, -- Tab pages line, where there are no labels
     -- TabLineSel   { }, -- Tab pages line, active tab page label
-    Title        { fg = c.obcyan }, -- Titles for output from ":set all", ":autocmd" etc.
+    Title        { fg = c.green }, -- Titles for output from ":set all", ":autocmd" etc.
     Visual       { bg = c.visual, fg = "none" }, -- Visual mode selection
     -- VisualNOS    { }, -- Visual mode selection when vim is "Not Owning the Selection".
     -- WarningMsg   { }, -- Warning messages
@@ -140,28 +152,30 @@ local theme = lush(function()
     --
     -- Uncomment and edit if you want more specific syntax highlighting.
 
-    Comment        { fg = c.purpcmnt }, -- Any comment
+    Comment        { fg = c.cmmmnt }, -- Any comment
 
     Constant       { fg = c.fg }, -- (*) Any constant
-    String         { fg = "#998f84" }, --   A string constant: "this is a string"
-    -- String         { fg = c.strng1 }, --   A string constant: "this is a string"
+    -- String         { fg = "#998f84" }, --   A string constant: "this is a string"
+    String         { fg = c.grn }, --   A string constant: "this is a string"
     -- Character      { }, --   A character constant: 'c', '\n'
     Number         { fg =  "#A46321" }, --   A number constant: 234, 0xff
     Boolean        { fg = "#A46321" }, --   A boolean constant: TRUE, false
     -- Float          { }, --   A floating point constant: 2.3e10
 
     Identifier     { fg = c.fg }, -- (*) Any variable name
-    -- Function       { fg = c.fg2 }, --   Function name (also: methods for classes)
+    -- Function       { fg = c.grn }, --   Function name (also: methods for classes)
 
-    Statement      { fg = c.fg, gui = "bold" }, -- (*) Any statement
-    Conditional    { fg =  "#aeee00" }, --   if, then, else, endif, switch, etc.
+    Statement      { fg = c.gray4, gui = "bold" }, -- (*) Any statement
+    -- Conditional    { fg =  "#aeee00" }, --   if, then, else, endif, switch, etc.
+    Conditional    { fg =  c.org }, --   if, then, else, endif, switch, etc.
     Repeat         { Conditional }, --   for, do, while, etc.
     -- Label          { Conditional }, --   case, default, etc.
-    Operator       { fg = '#aeee00' }, --   "sizeof", "+", "*", etc.
-    -- Keyword        { fg = "#A46321", gui = "bold" }, --   any other keyword
+    -- Operator       { fg = '#aeee00' }, --   "sizeof", "+", "*", etc.
+    Operator       { fg = c.grrn }, --   "sizeof", "+", "*", etc.
+    -- Keyword        { fg = c.purp, gui = "bold" }, --   any other keyword
     -- Exception      { }, --   try, catch, throw
 
-    PreProc        { fg = c.search }, -- (*) Generic Preprocessor
+    PreProc        { fg = c.purp }, -- (*) Generic Preprocessor
     -- Include        { }, --   Preprocessor #include
     -- Define         { }, --   Preprocessor #define
     -- Macro          { }, --   Same as Define
@@ -169,7 +183,7 @@ local theme = lush(function()
 
     -- Type           { fg = "#aeee00" }, -- (*) int, long, char, etc.
     -- Type           { fg = "#A46321" }, -- (*) int, long, char, etc.
-    Type           { fg = c.fg }, -- (*) int, long, char, etc.
+    Type           { fg = c.white }, -- (*) int, long, char, etc.
     -- StorageClass   { }, --   static, register, volatile, etc.
     -- Structure      { }, --   struct, union, enum, etc.
     -- Typedef        { }, --   A typedef
@@ -177,7 +191,7 @@ local theme = lush(function()
     Special        { Statement }, -- (*) Any special symbol
     -- SpecialChar    { }, --   Special character in a constant
     -- Tag            { }, --   You can use CTRL-] on this
-    Delimiter      { fg = c.fg2 }, --   Character that needs attention
+    Delimiter      { fg = c.purp }, --   Character that needs attention
     htmlTag        { Delimiter }, --    debugging statements
     htmlEndTag     { Delimiter }, --    debugging statements
     SpecialComment { fg = c.cmmmnt }, --   Special things inside a comment (e.g. '\n')

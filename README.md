@@ -26,11 +26,6 @@ vim.o.termguicolors = true
 vim.api.nvim_command "colorscheme zonk"
 ```
 
-## Inspriation
-
-- vividchalk
-- goodwolf
-
 ## Screenshots
 
 coming soon
